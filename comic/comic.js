@@ -8,6 +8,7 @@ class Comic {
         this.#precio = precio;
         this.#stock = stock;
     }
+    
 
     #validarStock() {
         if (this.#stock > 0) {
