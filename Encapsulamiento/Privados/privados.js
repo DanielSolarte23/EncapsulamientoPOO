@@ -42,3 +42,37 @@ console.log();
 //Implementar una clase con su constructor titulo, precio y stocks  privados-> validar Cantidad publics -> agregar stock vender y mostrar detalles. las propiedades privadas, titulo precio y stock 
 
 //subClase autor las propiedades privadas nameAutor publicaBiografia, metodoP Obtener info. clase commit clase padre y la clase auto es hijo  
+
+
+
+
+
+
+
+
+
+// Crear una instancia de la clase JuegoCartas
+let juego = new JuegoCartas("Corazones", "A", [], []);
+
+// Agregar jugadores
+juego.agregarJugador(new Jugador("Jugador 1"));
+juego.agregarJugador(new Jugador("Jugador 2"));
+
+// Crear baraja
+for (let i = 0; i < 52; i++) {
+  juego.baraja.push({
+    palo: ["Corazones", "Diamantes", "Tréboles", "Picas"][Math.floor(i / 13)],
+    valor: ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"][i % 13]
+  });
+}
+
+// Barajar y repartir cartas
+juego.barajar();
+juego.repartir();
+
+// Mostrar manos de los jugadores
+juego.mostrarMano(juego.#jugadores[0]);
+juego.mostrarMano(juego.#jugadores[1]);
+
+// Iniciar juego
+juego.jugar();
