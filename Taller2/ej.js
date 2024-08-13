@@ -50,7 +50,7 @@ class Matrimonio {
     }
 
     registrarMatrimonio() {
-        let nombresPareja = this.pareja1.map(persona => persona.obtenerNombreCompleto()).join(' y ');
+        let nombresPareja = this.pareja1.map(persona => person-a.obtenerNombreCompleto()).join(' y ');
         let nombresAutoridades = this.autoridades.map(autoridad => autoridad.obtenerDatos()).join(', ');
 
         return `Se registró el matrimonio de ${nombresPareja} en la fecha ${this.fecha} en ${this.lugarCelebracion}, matrimonio tipo ${this.tipo}. Autoridades presentes: ${nombresAutoridades}.`;
