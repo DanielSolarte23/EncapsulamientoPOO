@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Factory</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="Carros.js" defer></script>
+  </head>
+  <body class="bg-gray-700 flex justify-center items-center w-full h-screen">
+    <div class="flex flex-col text-white gap-5 w-1/2">
+      <select class="flex flex-col text-black rounded-sm p-1 border" id="tipovehiculo">
+        <option value="camioneta">camioneta</option>
+        <option value="sedan">sedan</option>
+        <option value="deportivo">deportivo</option>
+      </select>
+      <button class="bg-green-600 rounded-sm p-1 hover:bg-green-700" id="CrearBtn">Crear vehiculo</button>
+      <p class="border-2 bg-white h-40 text-black rounded-sm p-1" id="resultado"></p>
+    </div>
+  </body>
+</html>
+
