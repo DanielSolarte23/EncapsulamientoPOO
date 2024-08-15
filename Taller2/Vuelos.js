@@ -86,3 +86,5 @@ class Compañia {
   
   console.log(billete1.generar());
   
+
+
