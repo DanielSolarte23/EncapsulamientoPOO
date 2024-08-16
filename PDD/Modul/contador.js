@@ -43,3 +43,9 @@ document.querySelector('#decrementBtn').addEventListener('click', () => {
     numeroC.actualizarValor(result)
     document.querySelector("#resultado").innerText = result
 });
+
+
+//crear clases de incrementar y decrementar 
+//clases incrementar y decrementar
+
+//hacer este ejercicio con la el patron estrategy;
