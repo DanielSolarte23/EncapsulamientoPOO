@@ -84,7 +84,7 @@ const directivo1 = new Directivo("Ana", 40, 5000, "Gerente");
 directivo1.agregarSubordinado(empleado1);
 
 const cliente1 = new Cliente("Luis", 35, "555-5555");
-const empresa1 = new Empresa("TechCorp", "Calle 123", "555-5555", "info@techcorp.com", "www.techcorp.com", "123456789");
+const empresa1 = new Empresa("TechCorp", "Calle", "555", "i@techcorp.com", "www.techcorp.com", "123456789");
 
 empresa1.agregarEmpleado(directivo1);
 empresa1.agregarCliente(cliente1);

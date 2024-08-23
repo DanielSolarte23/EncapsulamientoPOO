@@ -47,8 +47,6 @@ class Contador{
     }
 }
 
-
-
 let numeroC = new Contador();
 document.querySelector('#IncrementarBtn').addEventListener('click', ()=>{
     let nc = document.querySelector('#inputN').value
