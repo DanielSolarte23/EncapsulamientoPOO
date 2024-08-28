@@ -2,12 +2,23 @@ create database colegio_db;
 
 use colegio_db;
 
+
 create table alumnos(
 	idAlumno int auto_increment primary key,
     nombreAlumno varchar(100),
 	apellidoAlumno varchar(100),
     edadAlumno int,
     telefonoAlumno varchar(50)
+);
+
+drop table tareas;
+
+create table tareas(
+	idTarea int auto_increment primary key,
+    materia varchar(100),
+    hora varchar(100),
+    id_Alumno int,
+    foreign key (id_Alumno) references alumnos(idAlumno)
 );
 
 INSERT INTO alumnos (nombreAlumno, apellidoAlumno, edadAlumno, telefonoAlumno) VALUES ('Carlos', 'García', 20, '3001234567');
@@ -32,5 +43,5 @@ INSERT INTO alumnos (nombreAlumno, apellidoAlumno, edadAlumno, telefonoAlumno) V
 INSERT INTO alumnos (nombreAlumno, apellidoAlumno, edadAlumno, telefonoAlumno) VALUES ('Verónica', 'Campos', 23, '3010123456');
 
 
-
+select * from tareas;
 select * from alumnos;
