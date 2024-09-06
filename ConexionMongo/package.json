@@ -1,0 +1,21 @@
+{
+  "name": "conexionmongo",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "docenv": "^2.0.6",
+    "express": "^4.19.2",
+    "mongoose": "^8.6.1",
+    "mongose": "^0.0.2-security",
+    "nodemon": "^3.1.4"
+  }
+}
