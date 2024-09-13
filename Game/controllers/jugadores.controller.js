@@ -5,7 +5,7 @@ export const obtenerJuego = async (req, res) => {
         const juegos = await Juego.find(); // 
         res.json(juegos);
     } catch (error) {
-        res.status(500).json({ message: "Error al obtener los departamentos" });
+        res.status(500).json({ mensaje: "Error al obtener los departamentos" });
     }
 };
 
@@ -16,48 +16,66 @@ export const agregarJuego = async (req, res) => {
             nombre,
             jugadores
         });
-        const juegoGuardado = await nuevoJuego.save();
+        await nuevoJuego.save();
         res.status(201).json({
-            message: "Juego creado exitosamente",
+            mensaje: "Juego creado exitosamente",
         });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ message: "Error al crear el juego" });
+        res.status(500).json({ mensaje: "Error al crear el juego" });
     }
 };
 
 
 
-// //Actualizar Departamentos
-// export const updateDpto = async (req, res) => {
-//     try {
-//         const { id } = req.params;
-//         const { nombre, descripcion } = req.body;
-//         if (!nombre || !descripcion) {
-//             return res.status(400).json({ message: "Los campos 'nombre' o 'descripcion' están vacíos" });
-//         }
-//         let dptoActualizado = await Departamento.findByIdAndUpdate(
-//             id, { nombre, descripcion }
-//         );
-//         if (!dptoActualizado) {
-//             return res.status(404).json({ message: "Departamento no encontrado" });
-//         }
-//         res.json({ message: "Departamento Actualizado", dptoActualizado });
-//     } catch (error) {
-//         console.log(error);
-//         return res.status(500).json({ message: "Error al actualizar el departamento" });
-//     }
-// };
+//Actualizar Juegos
+export const updateJuego = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { nombre, jugadores } = req.body;
+        if (!nombre || !jugadores) {
+            return res.status(400).json({ mensaje: "Los campos 'nombre' o 'jugadores' están vacíos" });
+        }
+        await Juego.findByIdAndUpdate(
+            id, { nombre, jugadores }
+        );
+        if (!juegoActualizado) {
+            return res.status(404).json({ mensaje: "Juego no encontrado" });
+        }
+        res.json({ mensaje: "Juego Actualizado" });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({ mensaje: "Error al actualizar el Juego" });
+    }
+};
 
-// //Eliminar Departamentos
-// export const deleteDpto = async (req, res) => {
-//     const { id } = req.params
-//     const dptoEliminado = await Departamento.findByIdAndDelete(id)
-//     if (!id) {
-//         return res.json({ message: "El departamento no existe" })
-//     } else {
-//         res.json({ message: "Departamento Eliminado", dptoEliminado })
-//     }
-// }
+//Eliminar Juego
+export const deleteJuego = async (req, res) => {
+    try {
+        const { id } = req.params
+        await Juego.findByIdAndDelete(id)
+        if (!id) {
+            return res.status(400).json({ Mensaje: "El Juego no existe" })
+        } else {
+            res.json({ Mensaje: "Juego Eliminado" })
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
 
+export const contarPuntajes = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const juego = await Juego.findById(id);
+        if (!juego) {
+            return res.status(404).json({ Mensaje: "El juego no se encontró" });
+        }
+        const puntajeTotal = juego.jugadores.reduce((total, jugador) => total + jugador.puntaje, 0);
 
+        res.json({ nombre: juego.nombre, puntajeTotal });
+
+    } catch (error) {
+        console.error('Error al contar los puntajes:', error);
+    }
+}

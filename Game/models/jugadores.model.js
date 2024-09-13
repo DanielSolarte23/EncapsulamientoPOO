@@ -9,8 +9,7 @@ const jugadoresShema = new mongoose.Schema({
         type: Number,
         require: false
     }
-
-});
+})
 
 const JuegoShema = new mongoose.Schema({
     nombre: {
