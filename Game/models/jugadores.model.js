@@ -23,7 +23,7 @@ const JuegoShema = new mongoose.Schema({
 })
 
 function arrayLimit(num){
-    return num.length>0 // limite 1
+    return num.length>0 
 }
 
 export const Juego = mongoose.model('Juego', JuegoShema)

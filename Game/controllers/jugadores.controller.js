@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import { Juego } from "../models/jugadores.model.js";
 
 export const obtenerJuego = async (req, res) => {
@@ -64,9 +65,41 @@ export const deleteJuego = async (req, res) => {
     }
 }
 
+// export const contarPuntajes = async (req, res) => {
+//     try {
+//         const { id } = req.params;
+//         const juego = await Juego.findById(id);
+//         if (!juego) {
+//             return res.status(404).json({ Mensaje: "El juego no se encontró" });
+//         }
+//         const puntajeTotal = juego.jugadores.reduce((total, jugador) => total + jugador.puntaje, 0);
+
+//         res.json({ nombre: juego.nombre, puntajeTotal });
+
+//     } catch (error) {
+//         console.error('Error al contar los puntajes:', error);
+//     }
+// }
+
+// export const contarPuntajes = async (req, res) => {
+//     let { id } = req.params;
+//     try {
+//         let resultado = await Juego.aggregate([
+//             { $match: { _id: new mongoose.Types.ObjectId(id) } },
+//             { $unwind: "$jugadores" }, 
+//             { $group: { _id: "$_id", totalPuntaje: { $sum: "$jugadores.puntaje" } } } 
+//         ]);
+//         console.log(resultado);
+//         res.status(200).json(resultado);
+//     } catch (error) {
+//         console.log(error);
+//         res.status(500).json({ error: "Error al contar los puntajes" });
+//     }
+// };
+
 export const contarPuntajes = async (req, res) => {
+    const { id } = req.params;
     try {
-        const { id } = req.params;
         const juego = await Juego.findById(id);
         if (!juego) {
             return res.status(404).json({ Mensaje: "El juego no se encontró" });
